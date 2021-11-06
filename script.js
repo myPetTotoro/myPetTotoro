@@ -12,6 +12,8 @@ fetch('https://ghibliapi.herokuapp.com/species')
     .then((data) => {
         // console.log(`first console log:`, data);
         petTotoroApp.displayPets(data);
+        console.log(data);
+
     })
     }
 
@@ -43,9 +45,43 @@ petTotoroApp.displayPets = (arrayData) => {
 
         // words.slice(0, -1);
 
-        console.log(words);
+        //Trying to get 'people' (ie character names)
 
-        // console.log(furColour);
+        // item.forEach(i => {
+        //     console.log(i.name)
+        // })
+
+        peopleArray = item.people
+
+        // console.log(peopleArray);
+
+        // peopleArray.forEach(i => {
+
+        // })
+      
+    //     fetch('https://ghibliapi.herokuapp.com/people')
+    //         .then((response) => {
+    //             return response.json();
+    //         }).then((data) => {
+    //                 console.log(data);
+    // })
+        
+
+        console.log(item.name);
+        if (item.name == 'Totoro') {
+
+            // console.log(item.people)
+
+            //randomly pick one and save it to a variable and use that in API call to generate a character for the user to guess from 
+
+            let randomValue = item.people[Math.floor(Math.random() * item.people.length)];
+            // console.log('random totoro', randomValue)
+
+
+
+
+           
+        }
     
         // console.log(furColour);
 
