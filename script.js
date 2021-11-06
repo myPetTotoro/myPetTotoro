@@ -21,20 +21,36 @@ petTotoroApp.getPets();
 // Display Function
 
 petTotoroApp.displayPets = (arrayData) => {
-    const selectEl = document.querySelector('select');
+    const selectSpecies = document.getElementById('speciesType');
     // ^ change to document to .getElementByID
 
     arrayData.forEach((item) => {
         const classification = item.classification;
-        console.log(classification);
+        // console.log(item);
+        // console.log(classification);
 
         const formValue = document.createElement('option');
 
-        selectEl.appendChild(formValue);
+        selectSpecies.appendChild(formValue);
         formValue.textContent = classification;
+        // console.log(item);
 
+        const furSelect = document.getElementById('furColour');
+    
+        const furColour = item.hair_colors;
+
+        const words = furColour.split(' ')[0];
+
+        // words.slice(0, -1);
+
+        console.log(words);
+
+        // console.log(furColour);
+    
+        // console.log(furColour);
 
     })
+
     
 }
 
