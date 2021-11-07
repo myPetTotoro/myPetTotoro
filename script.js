@@ -10,7 +10,6 @@ fetch('https://ghibliapi.herokuapp.com/species')
         return response.json();
     })
     .then((data) => {
-        // console.log(`first console log:`, data);
         petTotoroApp.displayPets(data);
         console.log(data);
 
@@ -23,59 +22,60 @@ petTotoroApp.getPets();
 // Display Function
 
 petTotoroApp.displayPets = (arrayData) => {
-    const selectSpecies = document.getElementById('speciesType');
-    // ^ change to document to .getElementByID
+    const selectSpecies = document.getElementById('characterType');
 
     arrayData.forEach((item) => {
-        const classification = item.classification;
-        // console.log(item);
-        // console.log(classification);
+        const classification = item.name;
 
         const formValue = document.createElement('option');
 
         selectSpecies.appendChild(formValue);
         formValue.textContent = classification;
-        // console.log(item);
 
-        const furSelect = document.getElementById('furColour');
-    
-        const furColour = item.hair_colors;
-
-        const words = furColour.split(' ')[0];
-
-        // words.slice(0, -1);
-
-        //Trying to get 'people' (ie character names)
-
-        // item.forEach(i => {
-        //     console.log(i.name)
-        // })
-
-        peopleArray = item.people
-
-        // console.log(peopleArray);
-
-        // peopleArray.forEach(i => {
-
-        // })
-      
-    //     fetch('https://ghibliapi.herokuapp.com/people')
-    //         .then((response) => {
-    //             return response.json();
-    //         }).then((data) => {
-    //                 console.log(data);
-    // })
         
+        // Save user chooses the type of character into a variable 
 
-        console.log(item.name);
-        if (item.name == 'Totoro') {
 
-            // console.log(item.people)
 
-            //randomly pick one and save it to a variable and use that in API call to generate a character for the user to guess from 
+        // feed user's choice of character type into if statement 
 
-            let randomValue = item.people[Math.floor(Math.random() * item.people.length)];
-            // console.log('random totoro', randomValue)
+        if (item.name == 'Human') {
+
+            console.log(item)
+
+            //Trying to get 'people' (ie character names)
+
+            peopleArray = item.people;
+
+
+            // randomly pick one of the characters (ie. api endpoint leading to a character description) 
+
+            let randomValue = peopleArray[Math.floor(Math.random() * peopleArray.length)];
+
+            // save endpoint to a variable and use that in API call for character details
+
+
+            console.log('random character', randomValue)
+
+            let url = randomValue;
+
+
+            // to generate character for the user to guess from 
+
+
+            fetch(`${url}`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+        
+            })
+
+
+            
+            
+
 
 
 
