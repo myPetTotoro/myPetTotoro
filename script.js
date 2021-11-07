@@ -35,7 +35,7 @@ petTotoroApp.displayPets = (arrayData) => {
         
         // Save user chooses the type of character into a variable 
 
-
+        
 
         // feed user's choice of character type into if statement 
 
