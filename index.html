@@ -12,20 +12,23 @@
 
 <!-- Link to Style Sheet-->
     <link rel="stylesheet" href="./styles/style.css">
-    <title>Document</title>
+    <title>My Pet Totoro</title>
 </head>
-<body>
-    
-    <header>
-        
-        <h1>My Pet Totoro</h1>
-        <p>Find out which character your pet would be if they lived in the magical world of Studio Ghibli</p>
 
+<body>
+
+    <header>
+        <div class="wrapper">
+        <div class="titleContainer">
+            <h1>My Pet Totoro</h1>
+            <p>Find out which character your pet would be if they lived in the magical world of Studio Ghibli</p>
+        </div>
+        </div>
     </header>
 
     <main>
 
-        <section>
+        <section class="formContainer">
 
             <form action="">
 
@@ -43,34 +46,40 @@
                 <select name="eyeColour" id="eyeColour"></select>
 
             
-                <button>SUBMIT</button>
+                <button type="submit">SUBMIT</button>
 
             </form>
 
         </section>
 
-        <section>
+        <section class="petResults">
+        <div class="wrapper">
+            <div class="flexContainer">    
+                <div class="textContainer">
 
-            <div class="textContainer">
-
-                <h2>Your Pet is:</h2>
-                <p class="petName">
+                    <h2>Your Pet Is:</h2>
+                    <p class="petName">
 
                     <!-- Dynamic content here -->
 
-                </p>
+                    </p>
 
-            </div>
+                </div>
 
-            <div class="imgContainer">
+                <div class="imgContainer">
 
                 <!-- Dynamic image here -->
 
+                </div>
             </div>
-
+        </div> <!-- wrapper closing div -->
         </section>
 
     </main>
+    
+    <footer>
+        <p>Created at Juno College of Technology | Data Courtesy of the Studio Ghibli API</p>
+    </footer>
 <!-- link to external script file -->
 <script src="./script.js"></script>
 

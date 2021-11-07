@@ -1,0 +1,38 @@
+html {
+    font-size: 125%;
+}
+
+body {
+    font-size: 16px;
+}
+
+@mixin fontSize ($sizeValue) {
+    font-size: $sizeValue;
+    font-family: 'Sora', sans-serif;
+    letter-spacing: 1px;
+}
+
+h1 {
+    @include fontSize(3rem);
+    line-height: 4rem;
+}
+
+h2 {
+    @include fontSize(2rem);
+    line-height: 2.6rem;
+    color: whitesmoke
+}
+
+p {
+    @include fontSize(1rem);
+    line-height: 1.2rem;
+}
+
+label {
+    @include fontSize(1rem);
+    line-height: 1.2rem;
+    color: whitesmoke;
+    margin: 10px;
+    text-transform: uppercase;
+
+}

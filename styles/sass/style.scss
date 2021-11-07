@@ -1,7 +1,81 @@
 @import 'setup';
+@import 'fonts';
 
-// font-family: 'Sora', sans-serif;
-
-h1 {
-    color: blue;
+.wrapper {
+    max-width: 1200px;
+    width: 85%;
+    margin: 0 auto;
 }
+
+header {
+    background-image: url('../assets/totoro024.jpeg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .titleContainer {
+        width: 40%;
+        margin-bottom: 130px;
+        p {
+            font-style: italic;
+        }
+    }
+}
+
+.formContainer {
+    background-image: url('../assets/ponyo038.jpeg');
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+select {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button [type='submit'] {
+    @include fontSize(1rem);
+    padding: 5px;
+}
+
+.petResults {
+    height: 80vh;
+    background-color: RGB(23,26,35,);
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    height: 5vh;
+    background-color: RGB(23,26,35);
+    text-align: center;
+    p {
+        @include fontSize(0.8rem);
+        color: whitesmoke;
+        font-style: normal;
+    }
+}
+
+
+
