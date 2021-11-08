@@ -1,107 +1,77 @@
-// Namespace
+const guessGhibliApp = {};
 
-const petTotoroApp = {};
+// Get Characters and Display in Drop Down
+guessGhibliApp.getCharacters = () => {
+    fetch('https://ghibliapi.herokuapp.com/species')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
 
-// API CALL
+            data.forEach((item) => {
+                const selectEL = document.querySelector('select');
 
-petTotoroApp.getPets = () => {
-fetch('https://ghibliapi.herokuapp.com/species')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        petTotoroApp.displayPets(data);
-        console.log(data);
+                const classification = item.name;
+                const formValue = document.createElement('option');
 
-    })
-    }
-
-
-petTotoroApp.getPets();
-
-// Display Function
-
-petTotoroApp.displayPets = (arrayData) => {
-    const selectSpecies = document.getElementById('characterType');
-
-    arrayData.forEach((item) => {
-        const classification = item.name;
-
-        const formValue = document.createElement('option');
-
-        selectSpecies.appendChild(formValue);
-        formValue.textContent = classification;
-
-        
-        // Save user chooses the type of character into a variable 
-
-        
-
-        // feed user's choice of character type into if statement 
-
-        if (item.name == 'Human') {
-
-            console.log(item)
-
-            //Trying to get 'people' (ie character names)
-
-            peopleArray = item.people;
-
-
-            // randomly pick one of the characters (ie. api endpoint leading to a character description) 
-
-            let randomValue = peopleArray[Math.floor(Math.random() * peopleArray.length)];
-
-            // save endpoint to a variable and use that in API call for character details
-
-
-            console.log('random character', randomValue)
-
-            let url = randomValue;
-
-
-            // to generate character for the user to guess from 
-
-
-            fetch(`${url}`)
-            .then((response) => {
-                return response.json();
+                selectEL.appendChild(formValue);
+                formValue.textContent = classification;
+                formValue.value = classification;
             })
-            .then((data) => {
-                console.log(data);
-        
+        })
+}
+
+// Get Random Computer Choice
+guessGhibliApp.randomChar = (userChoice) => {
+    fetch('https://ghibliapi.herokuapp.com/species')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            const computerChoice = data.map((arrayItem) => {
+                console.log(arrayItem)
+                const { name } = arrayItem
+                const classification = arrayItem.name;
+                console.log(`randomChar:`, classification);
+
+                if (classification === userChoice)
+                    console.log(arrayItem)
+
+                peopleArray = arrayItem.people;
+                console.log(peopleArray)
+
+                let randomChar = peopleArray[Math.floor(Math.random() * peopleArray.length)];
+
+                console.log(`this is the random Character:`, randomChar);
             })
 
+        })
 
-            
-            
-
-
-
-
-
-           
-        }
-    
-        // console.log(furColour);
-
-    })
-
-    
 }
 
 
-petTotoroApp.displayPets();
 
-// Init Function
+guessGhibliApp.init = () => {
+    // Get Characters and Display in Drop Down
+    guessGhibliApp.getCharacters();
 
-// petTorotoApp.init = () => {
+    // Get User Choice through Event Listener
+    const selectValue = document.getElementById('characterType');
 
-//     petTotoroApp.getPets();
-    
-// }
+    selectValue.addEventListener('change', (event) => {
+        event.preventDefault();
 
-// petTorotoApp.init();
+        const userChoice = selectValue.value;
+        console.log(userChoice);
+
+        guessGhibliApp.randomChar(userChoice);
+
+    })
+
+
+}
+
+guessGhibliApp.init();
 
 
 
