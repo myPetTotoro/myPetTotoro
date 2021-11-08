@@ -31,9 +31,27 @@ petTotoroApp.displayPets = (arrayData) => {
 
         selectSpecies.appendChild(formValue);
         formValue.textContent = classification;
+        formValue.value = classification;
 
         
-        // Save user chooses the type of character into a variable 
+        // Save user chooses the type of character into a variable
+
+        const valueSelect = () => {
+
+            const form = document.getElementById('form');
+
+            const button = document.getElementById('button');
+
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const userChoice = selectSpecies.value;
+                console.log(userChoice);
+                // return userChoice;
+            })
+        }        
+
+        valueSelect();
 
         
 
@@ -55,7 +73,7 @@ petTotoroApp.displayPets = (arrayData) => {
             // save endpoint to a variable and use that in API call for character details
 
 
-            console.log('random character', randomValue)
+            // console.log('random character', randomValue)
 
             let url = randomValue;
 
@@ -68,7 +86,7 @@ petTotoroApp.displayPets = (arrayData) => {
                 return response.json();
             })
             .then((data) => {
-                console.log(data);
+                // console.log(data);
         
             })
 
@@ -82,10 +100,10 @@ petTotoroApp.displayPets = (arrayData) => {
 
            
         }
+    })
     
         // console.log(furColour);
 
-    })
 
     
 }
