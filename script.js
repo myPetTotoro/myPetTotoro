@@ -17,9 +17,13 @@ guessGhibliApp.getCharacters = () => {
                 selectEL.appendChild(formValue);
                 formValue.textContent = classification;
                 formValue.value = classification;
+
             })
+
         })
+
 }
+
 
 // Get Random Computer Choice
 guessGhibliApp.randomChar = (userChoice) => {
@@ -28,27 +32,15 @@ guessGhibliApp.randomChar = (userChoice) => {
             return response.json();
         })
         .then((data) => {
-            const computerChoice = data.map((arrayItem) => {
-                const { name } = arrayItem
-                // console.log(arrayItem);
-                const classification = arrayItem.name;
-                // console.log(`randomChar:`, classification);
-
-                if (classification === userChoice) {
-
-                    console.log(arrayItem)
-
-                const peopleArray = arrayItem.people;
-                // console.log(peopleArray)
-
-                let randomChar = peopleArray[Math.floor(Math.random() * peopleArray.length)];
-
-                console.log(`random char`, randomChar);
-
-                // console.log(`this is the random Character:`, randomChar);
-                guessGhibliApp.getCharacterDetails(randomChar);
-                }
+            const computerChoice = data.filter((arrayItem) => {
+                return arrayItem.name === userChoice;
             })
+            console.log(`this is the computer choice:`, computerChoice);
+            
+            const guessWho = computerChoice[0].people;
+
+            let randomChar = guessWho[Math.floor(Math.random() * guessWho.length)];
+            console.log(`this is the random character:`, randomChar);
 
         })
 
@@ -72,7 +64,6 @@ guessGhibliApp.getCharacterDetails = (charURL) => {
         }
     )}
 
-
 guessGhibliApp.init = () => {
     // Get Characters and Display in Drop Down
     guessGhibliApp.getCharacters();
@@ -84,12 +75,11 @@ guessGhibliApp.init = () => {
         event.preventDefault();
 
         const userChoice = selectValue.value;
-        console.log(userChoice);
+        console.log(`this is the user choice:`, userChoice);
 
         guessGhibliApp.randomChar(userChoice);
 
     })
-
 
 }
 
