@@ -1,71 +1,77 @@
-// Namespace
+const guessGhibliApp = {};
 
-const petTotoroApp = {};
+// Get Characters and Display in Drop Down
+guessGhibliApp.getCharacters = () => {
+    fetch('https://ghibliapi.herokuapp.com/species')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
 
-// API CALL
+            data.forEach((item) => {
+                const selectEL = document.querySelector('select');
 
-petTotoroApp.getPets = () => {
-fetch('https://ghibliapi.herokuapp.com/species')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        // console.log(`first console log:`, data);
-        petTotoroApp.displayPets(data);
-    })
-    }
+                const classification = item.name;
+                const formValue = document.createElement('option');
 
+                selectEL.appendChild(formValue);
+                formValue.textContent = classification;
+                formValue.value = classification;
+            })
+        })
+}
 
-petTotoroApp.getPets();
+// Get Random Computer Choice
+guessGhibliApp.randomChar = (userChoice) => {
+    fetch('https://ghibliapi.herokuapp.com/species')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            const computerChoice = data.map((arrayItem) => {
+                console.log(arrayItem)
+                const { name } = arrayItem
+                const classification = arrayItem.name;
+                console.log(`randomChar:`, classification);
 
-// Display Function
+                if (classification === userChoice)
+                    console.log(arrayItem)
 
-petTotoroApp.displayPets = (arrayData) => {
-    const selectSpecies = document.getElementById('speciesType');
-    // ^ change to document to .getElementByID
+                peopleArray = arrayItem.people;
+                console.log(peopleArray)
 
-    arrayData.forEach((item) => {
-        const classification = item.classification;
-        // console.log(item);
-        // console.log(classification);
+                let randomChar = peopleArray[Math.floor(Math.random() * peopleArray.length)];
 
-        const formValue = document.createElement('option');
+                console.log(`this is the random Character:`, randomChar);
+            })
 
-        selectSpecies.appendChild(formValue);
-        formValue.textContent = classification;
-        // console.log(item);
+        })
 
-        const furSelect = document.getElementById('furColour');
-    
-        const furColour = item.hair_colors;
-
-        const words = furColour.split(' ')[0];
-
-        // words.slice(0, -1);
-
-        console.log(words);
-
-        // console.log(furColour);
-    
-        // console.log(furColour);
-
-    })
-
-    
 }
 
 
-petTotoroApp.displayPets();
 
-// Init Function
+guessGhibliApp.init = () => {
+    // Get Characters and Display in Drop Down
+    guessGhibliApp.getCharacters();
 
-// petTorotoApp.init = () => {
+    // Get User Choice through Event Listener
+    const selectValue = document.getElementById('characterType');
 
-//     petTotoroApp.getPets();
-    
-// }
+    selectValue.addEventListener('change', (event) => {
+        event.preventDefault();
 
-// petTorotoApp.init();
+        const userChoice = selectValue.value;
+        console.log(userChoice);
+
+        guessGhibliApp.randomChar(userChoice);
+
+    })
+
+
+}
+
+guessGhibliApp.init();
 
 
 
