@@ -7,7 +7,7 @@ guessGhibliApp.getCharacters = () => {
             return response.json();
         })
         .then((data) => {
-
+            
             data.forEach((item) => {
                 const selectEL = document.querySelector('select');
 
@@ -29,26 +29,41 @@ guessGhibliApp.randomChar = (userChoice) => {
         })
         .then((data) => {
             const computerChoice = data.map((arrayItem) => {
-                console.log(arrayItem)
                 const { name } = arrayItem
+                // console.log(arrayItem);
                 const classification = arrayItem.name;
-                console.log(`randomChar:`, classification);
+                // console.log(`randomChar:`, classification);
 
-                if (classification === userChoice)
+                if (classification === userChoice) {
+
                     console.log(arrayItem)
 
-                peopleArray = arrayItem.people;
-                console.log(peopleArray)
+                const peopleArray = arrayItem.people;
+                // console.log(peopleArray)
 
                 let randomChar = peopleArray[Math.floor(Math.random() * peopleArray.length)];
 
-                console.log(`this is the random Character:`, randomChar);
+                console.log(`random char`, randomChar);
+
+                // console.log(`this is the random Character:`, randomChar);
+                guessGhibliApp.getCharacterDetails(randomChar);
+                }
             })
 
         })
 
 }
 
+guessGhibliApp.getCharacterDetails = (charURL) => {
+    fetch(`${charURL}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(`this is character details:`, data);
+        }
+
+    )}
 
 
 guessGhibliApp.init = () => {
