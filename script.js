@@ -47,7 +47,6 @@ guessGhibliApp.randomChar = (userChoice) => {
 }
 
 
-
 guessGhibliApp.init = () => {
     // Get Characters and Display in Drop Down
     guessGhibliApp.getCharacters();
