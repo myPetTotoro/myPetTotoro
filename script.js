@@ -17,7 +17,7 @@ guessGhibliApp.getCharacters = () => {
                 selectEL.appendChild(formValue);
                 formValue.textContent = classification;
                 formValue.value = classification;
-
+                
             })
 
         })
@@ -40,10 +40,11 @@ guessGhibliApp.randomChar = (userChoice) => {
             const guessWho = computerChoice[0].people;
 
             let randomChar = guessWho[Math.floor(Math.random() * guessWho.length)];
-            guessGhibliApp.getCharacterDetails(randomChar)
+            
+            guessGhibliApp.getCharacterDetails(randomChar);
             console.log(`this is the random character:`, randomChar);
 
-            guessGhibliApp.getCharacterDetails(randomChar);
+            // guessGhibliApp.getCharacterDetails(randomChar);
         })
 
 }
@@ -67,23 +68,23 @@ guessGhibliApp.getCharacterDetails = (charURL) => {
     )}
 
 guessGhibliApp.userInput = (name) => {
-    const userForm = document.getElementById('userResponse');
-    userForm.addEventListener('submit', (e) => {
+    const appForm = document.getElementById('appForm');
+    appForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const userText = document.getElementById('textField');
+        const userText = document.getElementById('characterName');
         const userInput = userText.value;
 
         const capitalizedResponse = userInput.charAt(0).toUpperCase() + userInput.slice(1);
         
-        console.log(capitalizedResponse);
-        
         console.log(userInput);
 
-        if (userInput == name) {
-            console.log('cool man');
+        console.log(capitalizedResponse);
+        
+        if (capitalizedResponse === name) {
+            return alert('YOU DID IT')
         } else {
-            console.log('shiiiiii');
+            return alert('OH NO, WRONG')
         }
     })
 }
@@ -93,7 +94,7 @@ guessGhibliApp.init = () => {
     // Get Characters and Display in Drop Down
     guessGhibliApp.getCharacters();
 
-    guessGhibliApp.userInput();
+
 
     // Get User Choice through Event Listener
     const selectValue = document.getElementById('characterType');
