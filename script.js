@@ -57,15 +57,21 @@ guessGhibliApp.getCharacterDetails = (charURL) => {
         .then((data) => {
             console.log(`this is character details:`, data);
 
-            const name = data.name;
-            const age = data.age;
-            const gender = data.gender;
-            const eyeColor = data.eye_color;
-            const hairColor = data.hair_color;
-            console.log(name, age, gender, eyeColor, hairColor);
-            guessGhibliApp.userInput(name);
+        
+        guessGhibliApp.displayCharacterDetails(data);
         }
     )}
+
+guessGhibliApp.displayCharacterDetails = (displayDetails) => {
+    const name = displayDetails.name;
+    const age = displayDetails.age;
+    const gender = displayDetails.gender;
+    const eyeColor = displayDetails.eye_color;
+    const hairColor = displayDetails.hair_color;
+    console.log(name, age, gender, eyeColor, hairColor);
+
+    guessGhibliApp.userInput(name);
+}
 
 guessGhibliApp.userInput = (name) => {
     const appForm = document.getElementById('appForm');
