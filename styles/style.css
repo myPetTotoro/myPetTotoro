@@ -274,6 +274,7 @@ h1 {
   font-size: 3rem;
   font-family: "Sora", sans-serif;
   letter-spacing: 1px;
+  color: RGB(239, 239, 239);
   line-height: 4rem;
 }
 
@@ -281,35 +282,37 @@ h2 {
   font-size: 2rem;
   font-family: "Sora", sans-serif;
   letter-spacing: 1px;
+  color: RGB(239, 239, 239);
   line-height: 2.6rem;
-  color: whitesmoke;
+  color: RGB(239, 239, 239);
 }
 
 p {
   font-size: 1rem;
   font-family: "Sora", sans-serif;
   letter-spacing: 1px;
+  color: RGB(239, 239, 239);
   line-height: 1.2rem;
+  color: RGB(239, 239, 239);
 }
 
 label {
   font-size: 1rem;
   font-family: "Sora", sans-serif;
   letter-spacing: 1px;
+  color: RGB(239, 239, 239);
   line-height: 1.2rem;
-  color: whitesmoke;
-  margin: 10px;
-  text-transform: uppercase;
+  color: RGB(239, 239, 239);
 }
 
 .wrapper {
   max-width: 1200px;
-  width: 85%;
+  width: 80%;
   margin: 0 auto;
 }
 
 header {
-  background-image: url("../assets/totoro024.jpeg");
+  background-image: url("../assets/catBus.jpeg");
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -325,63 +328,11 @@ header {
           justify-content: flex-end;
 }
 header .titleContainer {
-  width: 40%;
-  margin-bottom: 130px;
+  width: 100%;
+  margin-bottom: 50px;
 }
 header .titleContainer p {
   font-style: italic;
-}
-
-.formContainer {
-  background-image: url("../assets/ponyo038.jpeg");
-  background-position: center;
-  background-size: cover;
-  height: 80vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-form {
-  max-width: 800px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-select {
-  width: 300px;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-button [type=submit] {
-  font-size: 1rem;
-  font-family: "Sora", sans-serif;
-  letter-spacing: 1px;
-  padding: 5px;
-}
-
-.petResults {
-  height: 80vh;
-  background-color: RGB(23, 26, 35);
-}
-
-.flexContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .titleContainer {
@@ -394,6 +345,96 @@ button [type=submit] {
           flex-direction: column;
 }
 
+main {
+  background-color: RGB(23, 26, 35);
+}
+
+.textContainer {
+  padding-top: 75px;
+  width: 100%;
+  margin: 0 auto;
+}
+.textContainer p {
+  margin: 10px auto;
+}
+
+.resultsSection {
+  height: 70vh;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.resultsSection .formContainer, .resultsSection .resultsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40%;
+  height: 400px;
+}
+
+.resultsContainer {
+  border: 1px solid RGB(136, 152, 177);
+  margin: 20px;
+  padding: 20px;
+}
+.resultsContainer p {
+  margin: 20px;
+}
+
+.nameContainer {
+  display: none;
+  border: 1px solid RGB(136, 152, 177);
+}
+.nameContainer h3 {
+  color: RGB(239, 239, 239);
+  text-transform: uppercase;
+}
+
+form {
+  max-width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+form label {
+  padding: 0px;
+  margin: 0 0 10px 0;
+}
+form select, form input {
+  padding: 5px;
+  margin-bottom: 20px;
+}
+form button {
+  font-size: 1rem;
+  font-family: "Sora", sans-serif;
+  letter-spacing: 1px;
+  color: RGB(239, 239, 239);
+  line-height: 1.2rem;
+  color: RGB(239, 239, 239);
+  background-color: RGB(211, 125, 106);
+  border: none;
+  padding: 5px;
+}
+
 footer {
   height: 5vh;
   background-color: RGB(23, 26, 35);
@@ -403,6 +444,7 @@ footer p {
   font-size: 0.8rem;
   font-family: "Sora", sans-serif;
   letter-spacing: 1px;
+  color: RGB(239, 239, 239);
   color: whitesmoke;
   font-style: normal;
 }

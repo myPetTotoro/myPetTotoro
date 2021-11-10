@@ -42,9 +42,31 @@ guessGhibliApp.randomChar = (userChoice) => {
             let randomChar = guessWho[Math.floor(Math.random() * guessWho.length)];
             console.log(`this is the random character:`, randomChar);
 
+            guessGhibliApp.getCharacterDetails(randomChar);
         })
 
 }
+
+guessGhibliApp.getCharacterDetails = (charURL) => {
+    fetch(`${charURL}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(`this is character details:`, data);
+
+            const name = data.name;
+            const age = data.age;
+            const gender = data.gender;
+            const eyeColor = data.eye_color;
+            const hairColor = data.hair_color;
+            console.log(name, age, gender, eyeColor, hairColor);
+
+        }
+        )
+}
+
+
 
 
 guessGhibliApp.init = () => {

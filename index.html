@@ -20,52 +20,48 @@
     <header>
         <div class="wrapper">
         <div class="titleContainer">
-            <h1>My Pet Totoro</h1>
-            <p>Find out which character your pet would be if they lived in the magical world of Studio Ghibli</p>
+            <h1>Guess Who Ghibli</h1>
+            <p>Guess the mystery character from the magical world of Studio Ghibli</p>
         </div>
         </div>
     </header>
 
     <main>
+    <div class="wrapper">
 
-        <section class="formContainer">
+        <section class="textContainer">
+            <p>Step 1: Select a character species from the drop-down and use the clues provided to guess the mystery character.</p>
+            <p>Step 2: Input the character's name and check to see if you are correct!</p>
+        </section>
 
-            <form name="appForm" class="appForm "action="" method="GET">
+        <section class="resultsSection">       
+            
+            <form name="appForm" class="appForm formContainer" action="" method="GET">
 
-                <label for="characterType">Character Type:</label>
+                <label for="characterType">Step 1: Generate Your Character</label>
                 <select class="characterType" name="characterType" id="characterType"></select>
 
-
-            
-                <button id="button">Play</button>
-
+                <label for="characterName">Step 2: Guess Your Character</label>
+                <input type="text" class="characterName" id="characterName" name="characterName" placeholder="Type character name here">
+        
+                <button id="button">Guess Who</button>
             </form>
+            
 
-        </section>
-
-        <section class="petResults">
-        <div class="wrapper">
-            <div class="flexContainer">    
-                <div class="textContainer">
-
-                    <h2>Your Pet Is:</h2>
-                    <p class="petName">
-
-                    <!-- Dynamic content here -->
-
-                    </p>
-
-                </div>
-
-                <div class="imgContainer">
-
-                <!-- Dynamic image here -->
-
-                </div>
+            <div class="resultsContainer" id="resultsContainer">
+                <p>Age:<span id="age"></span></p>
+                <p>Gender:<span id="gender"></span></p>
+                <p>Eye Colour:<span id="eyeColour"></span></p>
+                <p>Hair Colour:<span id="hairColour"></span></p>
             </div>
-        </div> <!-- wrapper closing div -->
-        </section>
 
+            <div class="nameContainer">
+                <h2></h2>
+            </div>
+                
+        
+        </section>
+    </div>
     </main>
     
     <footer>
