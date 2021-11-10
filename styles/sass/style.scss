@@ -1,14 +1,15 @@
 @import 'setup';
 @import 'fonts';
+@import 'colourPalette';
 
 .wrapper {
     max-width: 1200px;
-    width: 85%;
+    width: 80%;
     margin: 0 auto;
 }
 
 header {
-    background-image: url('../assets/totoro024.jpeg');
+    background-image: url('../assets/catBus.jpeg');
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -16,54 +17,87 @@ header {
     flex-direction: column;
     justify-content: flex-end;
     .titleContainer {
-        width: 40%;
-        margin-bottom: 130px;
+        width: 100%;
+        margin-bottom: 50px;
         p {
             font-style: italic;
         }
     }
 }
 
-.formContainer {
-    background-image: url('../assets/ponyo038.jpeg');
-    background-position: center;
-    background-size: cover;
-    height: 80vh;
+.titleContainer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+main {
+    background-color: RGB(23,26,35);
+}
+
+.textContainer {
+    padding-top: 75px;
+    width: 100%;
+    margin: 0 auto;
+    p {
+        margin: 10px auto;
+    } 
+}
+
+.resultsSection{
+    height: 70vh;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    .formContainer, .resultsContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40%;
+        height: 400px;
+    }
+}
+
+.resultsContainer {
+    border: 1px solid $accentOne;
+    margin: 20px;
+    padding: 20px;
+    p {
+        margin: 20px;
+    }
+}
+
+.nameContainer {
+    display: none;
+    border: 1px solid $accentOne;
+    h3 {
+        color: $fontColor;
+        text-transform: uppercase;
+    }
 }
 
 form {
     max-width: 800px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-}
+    label {
+        padding: 0px;
+        margin: 0 0 10px 0;
 
-select {
-    width: 300px;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-button [type='submit'] {
+    }
+    select, input {
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    button {
     @include fontSize(1rem);
+    line-height: 1.2rem;
+    color: $fontColor;
+    background-color: $accentThree;
+    border: none;
     padding: 5px;
-}
-
-.petResults {
-    height: 80vh;
-    background-color: RGB(23,26,35,);
-}
-
-.flexContainer {
-    display: flex;
-}
-
-.titleContainer {
-    display: flex;
-    flex-direction: column;
+    }
 }
 
 footer {

@@ -43,6 +43,7 @@ guessGhibliApp.randomChar = (userChoice) => {
             guessGhibliApp.getCharacterDetails(randomChar)
             console.log(`this is the random character:`, randomChar);
 
+            guessGhibliApp.getCharacterDetails(randomChar);
         })
 
 }

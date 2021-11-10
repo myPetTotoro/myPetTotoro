@@ -1,3 +1,5 @@
+@import 'colourPalette';
+
 html {
     font-size: 125%;
 }
@@ -10,6 +12,7 @@ body {
     font-size: $sizeValue;
     font-family: 'Sora', sans-serif;
     letter-spacing: 1px;
+    color: $fontColor;
 }
 
 h1 {
@@ -20,19 +23,17 @@ h1 {
 h2 {
     @include fontSize(2rem);
     line-height: 2.6rem;
-    color: whitesmoke
+    color: $fontColor;
 }
 
 p {
     @include fontSize(1rem);
     line-height: 1.2rem;
+    color: $fontColor;
 }
 
 label {
     @include fontSize(1rem);
     line-height: 1.2rem;
-    color: whitesmoke;
-    margin: 10px;
-    text-transform: uppercase;
-
+    color: $fontColor;
 }
