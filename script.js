@@ -57,21 +57,61 @@ guessGhibliApp.getCharacterDetails = (charURL) => {
         .then((data) => {
             console.log(`this is character details:`, data);
 
-        
         guessGhibliApp.displayCharacterDetails(data);
+        guessGhibliApp.displayCharacterName(data);
         }
     )}
 
+
 guessGhibliApp.displayCharacterDetails = (displayDetails) => {
-    const name = displayDetails.name;
-    const age = displayDetails.age;
-    const gender = displayDetails.gender;
-    const eyeColor = displayDetails.eye_color;
-    const hairColor = displayDetails.hair_color;
-    console.log(name, age, gender, eyeColor, hairColor);
+    const resultsContainer = document.getElementById('flipCardFront');
+    resultsContainer.innerText = '';
 
     guessGhibliApp.userInput(name);
+
+    const age = document.createElement('p');
+    age.innerText = `Age: ${displayDetails.age} years old`;
+
+    const gender = document.createElement('p');
+    gender.innerText = `Gender: ${displayDetails.gender}`;
+
+    const eyeColor = document.createElement('p');
+    eyeColor.innerText = `Eye Colour: ${displayDetails.eye_color}`;
+
+    const hairColor = document.createElement('p');
+    hairColor.innerText = `Hair Colour: ${displayDetails.hair_color}`
+
+    const allDetails = document.createElement('div');
+    allDetails.classList.add('details');
+
+    allDetails.appendChild(age);
+    allDetails.appendChild(gender);
+    allDetails.appendChild(eyeColor);
+    allDetails.appendChild(hairColor);
+
+    resultsContainer.appendChild(allDetails);
 }
+
+
+guessGhibliApp.displayCharacterName = (displayDetails) => {
+    const resultsName = document.getElementById('flipCardBack');
+    resultsName.innerText = '';
+
+    guessGhibliApp.userInput(name);
+
+    const charName = document.createElement('h2');
+    charName.innerText = displayDetails.name;
+
+
+    const characterDetail = document.createElement('div');
+    characterDetail.classList.add('detail');
+
+    characterDetail.appendChild(charName);
+
+    resultsName.appendChild(characterDetail);
+
+}
+
 
 guessGhibliApp.userInput = (name) => {
     const appForm = document.getElementById('appForm');
@@ -86,6 +126,12 @@ guessGhibliApp.userInput = (name) => {
         console.log(userInput);
 
         console.log(capitalizedResponse);
+        
+        // if (capitalizedResponse === name) {
+        //     return alert('YOU DID IT')
+        // } else {
+        //     return alert('OH NO, WRONG')
+        // }
         
         if (capitalizedResponse === name) {
             return alert('YOU DID IT')
