@@ -62,6 +62,7 @@ guessGhibliApp.getCharacterDetails = (charURL) => {
         guessGhibliApp.displayCharacterDetails(data);
         guessGhibliApp.displayCharacterName(data);
         guessGhibliApp.userInput(data);
+        guessGhibliApp.formReset(data);
         }
     )}
 
@@ -127,10 +128,10 @@ guessGhibliApp.displayCharacterName = (displayDetails) => {
 // USER INPUT FUNCTION
 
 guessGhibliApp.userInput = (data) => {
-    const appForm = document.getElementById('appForm');
-    appForm.addEventListener('submit', (e) => {
+    const appForm = document.getElementById('button');
+    appForm.addEventListener('click', (e) => {
         e.preventDefault();
-
+        
         const generatedName = data.name;
         
         const userText = document.getElementById('characterName');
@@ -143,6 +144,7 @@ guessGhibliApp.userInput = (data) => {
         capitalizedResponse === generatedName ? guessGhibliApp.correctAnswer(generatedName) : guessGhibliApp.incorrectAnswer(generatedName); 
         
         userText.value = '';
+
         
     })
 }
@@ -180,7 +182,7 @@ guessGhibliApp.incorrectAnswer = (generatedName) => {
 guessGhibliApp.selectValue = () => {
     const selectValue = document.getElementById('characterType');
 
-    selectValue.addEventListener('change', (event) => {
+    selectValue.addEventListener('change', (e) => {
 
         const userChoice = selectValue.value;
         console.log(`this is the user choice:`, userChoice);
@@ -190,12 +192,22 @@ guessGhibliApp.selectValue = () => {
     })
 }
 
+// PLAY AGAIN FORM RESET
+guessGhibliApp.formReset = () => {
+
+    const playAgain = document.getElementById('playAgain');
+    playAgain.addEventListener('click', () => {
+        playAgain.reset();
+    })
+}
+
 // INIT FUNCTION
 
 guessGhibliApp.init = () => {
     
     guessGhibliApp.getCharacters();
     guessGhibliApp.selectValue();
+    
 }
 
 // INIT CALL

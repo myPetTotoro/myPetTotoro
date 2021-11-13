@@ -12,17 +12,17 @@
 
 <!-- Link to Style Sheet-->
     <link rel="stylesheet" href="./styles/style.css">
-    <title>My Pet Totoro</title>
+    <title>Guess Who Ghibli</title>
 </head>
 
 <body>
 
     <header>
         <div class="wrapper">
-        <div class="titleContainer">
-            <h1>Guess Who Ghibli</h1>
-            <p>Guess the mystery character from the magical world of Studio Ghibli</p>
-        </div>
+            <div class="titleContainer">
+                <h1>Guess Who Ghibli</h1>
+                <p>Guess the mystery character from the magical world of Studio Ghibli</p>
+            </div>
         </div>
     </header>
 
@@ -40,33 +40,37 @@
 
                 <label for="characterType">Step 1: Generate Your Character</label>
                 <select class="characterType" name="characterType" id="characterType">
-                    <option value="character">Please select Character</option>
+                    <option value="character">Please select a character</option>
                 </select>
 
                 <label for="characterName">Step 2: Guess Your Character</label>
                 <input type="text" class="characterName" id="characterName" name="characterName" placeholder="Type character name here">
         
-                <button id="button">Guess Who</button>
+                <button type="submit" id="button">Guess Who</button>
+
                 <div class="answerContainer" id="answerContainer">
                     <!-- dynamic text answer container -->
                 </div>
+
+                <button class="playAgain" type="submit" id="playAgain">Play Again!</button>
             </form>
             
-            <div class="resultsContainer flipCardContainer">
+            <section class="resultsContainer flipCardContainer">
                 <div class="flipCard">
                     <div class="flipCardFront" id="flipCardFront"></div>
 
                     <div class="flipCardBack" id="flipCardBack"></div>
                 </div>
-            </div>
+            </section>
         
         </section>
-    </div>
+    </div> <!-- closing wrapper div -->
     </main>
     
     <footer>
         <p>Created at Juno College of Technology | Data Courtesy of the Studio Ghibli API</p>
     </footer>
+
 <!-- link to external script file -->
 <script src="./script.js"></script>
 

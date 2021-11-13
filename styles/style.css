@@ -468,7 +468,7 @@ main {
 }
 
 .answerContainer {
-  height: 5vh;
+  height: 8vh;
   margin-top: 20px;
 }
 
@@ -527,12 +527,6 @@ footer p {
 @media (max-width: 880px) {
   .resultsSection .formContainer, .resultsSection .resultsContainer {
     width: 50%;
-  }
-
-  footer span {
-    height: 5vh;
-    background-color: RGB(23, 26, 35);
-    display: block;
   }
 }
 @media (max-width: 750px) {
