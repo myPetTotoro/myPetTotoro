@@ -1,6 +1,9 @@
+// NAMESPACE OBJECT
+
 const guessGhibliApp = {};
 
-// Get Characters and Display in Drop Down
+// API CALL TO GET CHARACTERS FOR DROPDOWN
+
 guessGhibliApp.getCharacters = () => {
     fetch('https://ghibliapi.herokuapp.com/species')
         .then((response) => {
@@ -21,11 +24,10 @@ guessGhibliApp.getCharacters = () => {
             })
 
         })
-
 }
 
+// RANDOM CHARACTER API CALL
 
-// Get Random Computer Choice
 guessGhibliApp.randomChar = (userChoice) => {
     fetch('https://ghibliapi.herokuapp.com/species')
         .then((response) => {
@@ -43,11 +45,11 @@ guessGhibliApp.randomChar = (userChoice) => {
             
             guessGhibliApp.getCharacterDetails(randomChar);
             console.log(`this is the random character:`, randomChar);
-
-            // guessGhibliApp.getCharacterDetails(randomChar);
         })
 
 }
+
+// RANDOM CHARACTER DETAILS API CALL
 
 guessGhibliApp.getCharacterDetails = (charURL) => {
     fetch(`${charURL}`)
@@ -59,15 +61,18 @@ guessGhibliApp.getCharacterDetails = (charURL) => {
 
         guessGhibliApp.displayCharacterDetails(data);
         guessGhibliApp.displayCharacterName(data);
+        guessGhibliApp.userInput(data);
         }
     )}
 
+// CHARACTER DETAILS DISPLAY FUNCTION
 
 guessGhibliApp.displayCharacterDetails = (displayDetails) => {
     const resultsContainer = document.getElementById('flipCardFront');
     resultsContainer.innerText = '';
 
-    guessGhibliApp.userInput(name);
+    const hint = document.createElement('p');
+    hint.innerText = 'Hover for clue';
 
     const age = document.createElement('p');
     age.innerText = `Age: ${displayDetails.age} years old`;
@@ -84,6 +89,7 @@ guessGhibliApp.displayCharacterDetails = (displayDetails) => {
     const allDetails = document.createElement('div');
     allDetails.classList.add('details');
 
+    allDetails.appendChild(hint);
     allDetails.appendChild(age);
     allDetails.appendChild(gender);
     allDetails.appendChild(eyeColor);
@@ -92,15 +98,21 @@ guessGhibliApp.displayCharacterDetails = (displayDetails) => {
     resultsContainer.appendChild(allDetails);
 }
 
+// CHARACTER NAME DISPLAY FUNCTION
 
 guessGhibliApp.displayCharacterName = (displayDetails) => {
     const resultsName = document.getElementById('flipCardBack');
     resultsName.innerText = '';
 
-    guessGhibliApp.userInput(name);
+    // NAME JUMBLE FUNCTION
+
+    const jumbledName = displayDetails.name;
+    let shuffler = jumbledName.split('').sort(() => {
+        return 0.5 - Math.random()
+     }).join('');
 
     const charName = document.createElement('h2');
-    charName.innerText = displayDetails.name;
+    charName.innerText = shuffler;
 
 
     const characterDetail = document.createElement('div');
@@ -109,50 +121,63 @@ guessGhibliApp.displayCharacterName = (displayDetails) => {
     characterDetail.appendChild(charName);
 
     resultsName.appendChild(characterDetail);
-
 }
 
+// USER INPUT FUNCTION
 
-guessGhibliApp.userInput = (name) => {
+guessGhibliApp.userInput = (data) => {
     const appForm = document.getElementById('appForm');
     appForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        const generatedName = data.name;
         
         const userText = document.getElementById('characterName');
         const userInput = userText.value;
 
+        // capitalize user response
         const capitalizedResponse = userInput.charAt(0).toUpperCase() + userInput.slice(1);
-        
-        console.log(userInput);
 
-        console.log(capitalizedResponse);
+        // conditional operator
+        capitalizedResponse === generatedName ? guessGhibliApp.correctAnswer() : guessGhibliApp.incorrectAnswer();  
         
-        // if (capitalizedResponse === name) {
-        //     return alert('YOU DID IT')
-        // } else {
-        //     return alert('OH NO, WRONG')
-        // }
-        
-        if (capitalizedResponse === name) {
-            return alert('YOU DID IT')
-        } else {
-            return alert('OH NO, WRONG')
-        }
     })
 }
 
+// CORRRECT ANSWER FUNCTION
 
-guessGhibliApp.init = () => {
-    // Get Characters and Display in Drop Down
-    guessGhibliApp.getCharacters();
+guessGhibliApp.correctAnswer = () => {
+    
+    const appForm = document.getElementById('appForm');
 
+    const response = document.createElement('p');
 
+    response.innerText = 'Always believe in yourself. Correct Answer';
 
-    // Get User Choice through Event Listener
+    appForm.appendChild(response);
+
+} 
+
+// INCORRECT ANSWER FUNCTION
+
+guessGhibliApp.incorrectAnswer = () => {
+    
+    const appForm = document.getElementById('appForm');
+
+    const response = document.createElement('p');
+
+    response.innerText = 'life is Suffering. Incorrect Answer!';
+
+    appForm.appendChild(response);
+
+}
+
+// VALUE SELECT FUNCTION
+
+guessGhibliApp.selectValue = () => {
     const selectValue = document.getElementById('characterType');
 
     selectValue.addEventListener('change', (event) => {
-        event.preventDefault();
 
         const userChoice = selectValue.value;
         console.log(`this is the user choice:`, userChoice);
@@ -160,8 +185,17 @@ guessGhibliApp.init = () => {
         guessGhibliApp.randomChar(userChoice);
 
     })
-
 }
+
+// INIT FUNCTION
+
+guessGhibliApp.init = () => {
+    
+    guessGhibliApp.getCharacters();
+    guessGhibliApp.selectValue();
+}
+
+// INIT CALL
 
 guessGhibliApp.init();
 

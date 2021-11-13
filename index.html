@@ -29,7 +29,7 @@
     <main>
     <div class="wrapper">
 
-        <section class="textContainer">
+        <section class="textContainer" id="textContainer">
             <p>Step 1: Select a character species from the drop-down and use the clues provided to guess the mystery character.</p>
             <p>Step 2: Input the character's name and check to see if you are correct!</p>
         </section>
@@ -39,7 +39,9 @@
             <form name="appForm" class="appForm formContainer" id="appForm" action="" method="GET">
 
                 <label for="characterType">Step 1: Generate Your Character</label>
-                <select class="characterType" name="characterType" id="characterType"></select>
+                <select class="characterType" name="characterType" id="characterType">
+                    <option value="character">Please select Character</option>
+                </select>
 
                 <label for="characterName">Step 2: Guess Your Character</label>
                 <input type="text" class="characterName" id="characterName" name="characterName" placeholder="Type character name here">
