@@ -71,7 +71,8 @@ guessGhibliApp.displayCharacterDetails = (displayDetails) => {
     const resultsContainer = document.getElementById('flipCardFront');
     resultsContainer.innerText = '';
 
-    
+    const hint = document.createElement('p');
+    hint.innerText = 'Hover for clue';
 
     const age = document.createElement('p');
     age.innerText = `Age: ${displayDetails.age} years old`;
@@ -88,6 +89,7 @@ guessGhibliApp.displayCharacterDetails = (displayDetails) => {
     const allDetails = document.createElement('div');
     allDetails.classList.add('details');
 
+    allDetails.appendChild(hint);
     allDetails.appendChild(age);
     allDetails.appendChild(gender);
     allDetails.appendChild(eyeColor);
@@ -102,8 +104,15 @@ guessGhibliApp.displayCharacterName = (displayDetails) => {
     const resultsName = document.getElementById('flipCardBack');
     resultsName.innerText = '';
 
+    // NAME JUMBLE FUNCTION
+
+    const jumbledName = displayDetails.name;
+    let shuffler = jumbledName.split('').sort(() => {
+        return 0.5 - Math.random()
+     }).join('');
+
     const charName = document.createElement('h2');
-    charName.innerText = displayDetails.name;
+    charName.innerText = shuffler;
 
 
     const characterDetail = document.createElement('div');
@@ -129,14 +138,29 @@ guessGhibliApp.userInput = (data) => {
 
         // capitalize user response
         const capitalizedResponse = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+
+        // conditional operator
+        capitalizedResponse === generatedName ? guessGhibliApp.correctAnswer() : guessGhibliApp.incorrectAnswer();  
         
-        if (capitalizedResponse === generatedName) {
-            return alert('YOU DID IT')
-        } else {
-            return guessGhibliApp.incorrectAnswer();
-        }
     })
 }
+
+// CORRRECT ANSWER FUNCTION
+
+guessGhibliApp.correctAnswer = () => {
+    
+    const appForm = document.getElementById('appForm');
+
+    const response = document.createElement('p');
+
+    response.innerText = 'Always believe in yourself. Correct Answer';
+
+    appForm.appendChild(response);
+
+    const playAgain = document.createElement('button');
+
+    playAgain.innerText = 'click to play again';
+} 
 
 // INCORRECT ANSWER FUNCTION
 
@@ -146,9 +170,13 @@ guessGhibliApp.incorrectAnswer = () => {
 
     const response = document.createElement('p');
 
-    response.innerText = 'wrong answer';
+    response.innerText = 'life is Suffering. Incorrect Answer!';
 
     appForm.appendChild(response);
+
+    const playAgain = document.createElement('button');
+
+    playAgain.innerText = 'click to play again';
 
 }
 
