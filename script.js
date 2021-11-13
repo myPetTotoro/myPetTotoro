@@ -140,7 +140,7 @@ guessGhibliApp.userInput = (data) => {
         const capitalizedResponse = userInput.charAt(0).toUpperCase() + userInput.slice(1);
 
         // conditional operator
-        capitalizedResponse === generatedName ? guessGhibliApp.correctAnswer() : guessGhibliApp.incorrectAnswer(); 
+        capitalizedResponse === generatedName ? guessGhibliApp.correctAnswer(generatedName) : guessGhibliApp.incorrectAnswer(generatedName); 
         
         userText.value = '';
         
@@ -149,13 +149,13 @@ guessGhibliApp.userInput = (data) => {
 
 // CORRECT ANSWER FUNCTION
 
-guessGhibliApp.correctAnswer = () => {
+guessGhibliApp.correctAnswer = (generatedName) => {
     
     const appForm = document.getElementById('answerContainer');
 
     const response = document.createElement('p');
 
-    response.innerText = 'Always believe in yourself. Correct Answer!';
+    response.innerText = `Always believe in yourself. You are correct, the answer is ${generatedName}!`;
 
     appForm.appendChild(response);
 
@@ -163,13 +163,13 @@ guessGhibliApp.correctAnswer = () => {
 
 // INCORRECT ANSWER FUNCTION
 
-guessGhibliApp.incorrectAnswer = () => {
+guessGhibliApp.incorrectAnswer = (generatedName) => {
     
     const appForm = document.getElementById('answerContainer');
 
     const response = document.createElement('p');
 
-    response.innerText = 'Life is Suffering. Incorrect Answer!';
+    response.innerText = `Life is Suffering. Incorrect answer, the answer is ${generatedName}!`;
 
     appForm.appendChild(response);
 

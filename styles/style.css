@@ -612,3 +612,8 @@ footer p {
     padding: 20px 0;
   }
 }
+@media (max-width: 400px) {
+  h3 {
+    display: none;
+  }
+}
