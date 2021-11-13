@@ -67,7 +67,7 @@ main {
     width: 40%;
     height: 400px;
     perspective: 1000px;
-    p {
+    p, h3 {
         margin: 20px;
     }
 }
@@ -80,7 +80,8 @@ main {
     transform-style: preserve-3d;
 }
 
-.resultsContainer:hover .flipCard {
+.resultsContainer:hover .flipCard,
+.resultsContainer:focus .flipCard {
     transform: rotateY(180deg);
 }
 
@@ -95,7 +96,8 @@ main {
 }
 
 .flipCardFront {
-    background-color: RGB(23,26,35)
+    background-color: RGB(23,26,35);
+    text-align: left;
 }
 
 .flipCardBack {
@@ -112,6 +114,11 @@ main {
         color: $fontColor;
         text-transform: uppercase;
     }
+}
+
+.answerContainer {
+    height: 5vh;
+    margin-top: 20px;
 }
 
 form {
@@ -134,9 +141,15 @@ button {
     line-height: 1.2rem;
     color: $fontColor;
     background-color: $accentThree;
+    cursor: pointer;
     border: none;
     padding: 5px;
     }
+
+button:hover,
+button:focus {
+    background-color: RGBA(211, 125, 106, 0.7);
+}
 
 footer {
     height: 5vh;
@@ -144,10 +157,87 @@ footer {
     text-align: center;
     p {
         @include fontSize(0.8rem);
-        color: whitesmoke;
+        color: $fontColor;
         font-style: normal;
     }
 }
+
+/* MEDIA QUERIES */ 
+@media (max-width: 880px) {
+    .resultsSection {
+        .formContainer, .resultsContainer {
+        width: 50%;
+        }
+    }
+    
+    footer span {
+        height: 5vh;
+        background-color: RGB(23,26,35);
+        display: block;
+    }
+}
+
+@media (max-width: 750px) {
+    header {
+        height: 60vh;
+    }
+
+    h1 {
+    @include fontSize(2.6rem);
+    line-height: 3rem;
+    }
+
+    h3 {
+    @include fontSize(1rem);
+    line-height: 1.2rem;
+    color: $accentThree;
+    }
+}
+
+@media (max-width: 685px) {
+    p {
+    @include fontSize(0.8rem);
+    line-height: 1rem;
+    color: $fontColor;
+    }
+
+    label {
+    @include fontSize(0.8rem);
+    line-height: 1rem;
+    color: $fontColor;
+    }
+
+    .resultsContainer {
+    margin: 0;
+    p, h3 {
+        margin: 10px;
+        }
+    }
+
+    .resultsSection {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+        .formContainer, .resultsContainer {
+        width: 100%;
+        }
+    }
+
+    .formContainer {
+    margin-top: 50px;
+    }
+
+    footer {
+        height: inherit;
+    p {
+        height: inherit;
+        padding: 20px 0;
+        }
+    }
+
+}
+
 
 
 

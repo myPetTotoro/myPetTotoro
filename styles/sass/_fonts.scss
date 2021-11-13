@@ -22,8 +22,15 @@ h1 {
 
 h2 {
     @include fontSize(2rem);
-    line-height: 2.6rem;
-    color: $fontColor;
+    line-height: 2.8rem;
+    color: $accentThree;
+    font-weight: bold;
+}
+
+h3 {
+    @include fontSize(1.2rem);
+    line-height: 1.6rem;
+    color: $accentThree;
 }
 
 p {

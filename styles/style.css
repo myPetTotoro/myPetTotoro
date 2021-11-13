@@ -283,8 +283,18 @@ h2 {
   font-family: "Sora", sans-serif;
   letter-spacing: 1px;
   color: RGB(239, 239, 239);
-  line-height: 2.6rem;
+  line-height: 2.8rem;
+  color: RGB(211, 125, 106);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-family: "Sora", sans-serif;
+  letter-spacing: 1px;
   color: RGB(239, 239, 239);
+  line-height: 1.6rem;
+  color: RGB(211, 125, 106);
 }
 
 p {
@@ -396,7 +406,7 @@ main {
   -webkit-perspective: 1000px;
           perspective: 1000px;
 }
-.resultsContainer p {
+.resultsContainer p, .resultsContainer h3 {
   margin: 20px;
 }
 
@@ -412,7 +422,8 @@ main {
           transform-style: preserve-3d;
 }
 
-.resultsContainer:hover .flipCard {
+.resultsContainer:hover .flipCard,
+.resultsContainer:focus .flipCard {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
@@ -436,6 +447,7 @@ main {
 
 .flipCardFront {
   background-color: RGB(23, 26, 35);
+  text-align: left;
 }
 
 .flipCardBack {
@@ -453,6 +465,11 @@ main {
 .nameContainer h3 {
   color: RGB(239, 239, 239);
   text-transform: uppercase;
+}
+
+.answerContainer {
+  height: 5vh;
+  margin-top: 20px;
 }
 
 form {
@@ -482,8 +499,14 @@ button {
   line-height: 1.2rem;
   color: RGB(239, 239, 239);
   background-color: RGB(211, 125, 106);
+  cursor: pointer;
   border: none;
   padding: 5px;
+}
+
+button:hover,
+button:focus {
+  background-color: RGBA(211, 125, 106, 0.7);
 }
 
 footer {
@@ -496,6 +519,96 @@ footer p {
   font-family: "Sora", sans-serif;
   letter-spacing: 1px;
   color: RGB(239, 239, 239);
-  color: whitesmoke;
+  color: RGB(239, 239, 239);
   font-style: normal;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 880px) {
+  .resultsSection .formContainer, .resultsSection .resultsContainer {
+    width: 50%;
+  }
+
+  footer span {
+    height: 5vh;
+    background-color: RGB(23, 26, 35);
+    display: block;
+  }
+}
+@media (max-width: 750px) {
+  header {
+    height: 60vh;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+    font-family: "Sora", sans-serif;
+    letter-spacing: 1px;
+    color: RGB(239, 239, 239);
+    line-height: 3rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-family: "Sora", sans-serif;
+    letter-spacing: 1px;
+    color: RGB(239, 239, 239);
+    line-height: 1.2rem;
+    color: RGB(211, 125, 106);
+  }
+}
+@media (max-width: 685px) {
+  p {
+    font-size: 0.8rem;
+    font-family: "Sora", sans-serif;
+    letter-spacing: 1px;
+    color: RGB(239, 239, 239);
+    line-height: 1rem;
+    color: RGB(239, 239, 239);
+  }
+
+  label {
+    font-size: 0.8rem;
+    font-family: "Sora", sans-serif;
+    letter-spacing: 1px;
+    color: RGB(239, 239, 239);
+    line-height: 1rem;
+    color: RGB(239, 239, 239);
+  }
+
+  .resultsContainer {
+    margin: 0;
+  }
+  .resultsContainer p, .resultsContainer h3 {
+    margin: 10px;
+  }
+
+  .resultsSection {
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .resultsSection .formContainer, .resultsSection .resultsContainer {
+    width: 100%;
+  }
+
+  .formContainer {
+    margin-top: 50px;
+  }
+
+  footer {
+    height: inherit;
+  }
+  footer p {
+    height: inherit;
+    padding: 20px 0;
+  }
 }
