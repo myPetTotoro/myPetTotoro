@@ -121,7 +121,6 @@ guessGhibliApp.displayCharacterName = (displayDetails) => {
     characterDetail.appendChild(charName);
 
     resultsName.appendChild(characterDetail);
-
 }
 
 // USER INPUT FUNCTION
@@ -157,9 +156,6 @@ guessGhibliApp.correctAnswer = () => {
 
     appForm.appendChild(response);
 
-    const playAgain = document.createElement('button');
-
-    playAgain.innerText = 'click to play again';
 } 
 
 // INCORRECT ANSWER FUNCTION
@@ -173,10 +169,6 @@ guessGhibliApp.incorrectAnswer = () => {
     response.innerText = 'life is Suffering. Incorrect Answer!';
 
     appForm.appendChild(response);
-
-    const playAgain = document.createElement('button');
-
-    playAgain.innerText = 'click to play again';
 
 }
 
