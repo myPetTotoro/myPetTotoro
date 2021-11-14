@@ -62,7 +62,7 @@ main {
 
 .resultsContainer {
     border: 2px solid $accentOne;
-    margin: 20px;
+    margin: 20px 0;
     padding: 20px;
     width: 40%;
     height: 400px;
@@ -117,7 +117,7 @@ main {
 }
 
 .answerContainer {
-    height: 8vh;
+    height: 10vh;
     margin-top: 20px;
 }
 
@@ -151,10 +151,6 @@ button:focus {
     background-color: RGBA(211, 125, 106, 0.7);
 }
 
-// button.playAgain {
-//     visibility: hidden;
-// }
-
 footer {
     height: 5vh;
     background-color: RGB(23,26,35);
@@ -172,6 +168,10 @@ footer {
         .formContainer, .resultsContainer {
         width: 50%;
         }
+    }
+
+    .resultsContainer {
+        margin-left: 20px;
     }
 }
 

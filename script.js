@@ -19,11 +19,11 @@ guessGhibliApp.getCharacters = () => {
 
                 selectEL.appendChild(formValue);
                 formValue.textContent = classification;
-                formValue.value = classification;
-                
+                formValue.value = classification;  
             })
 
         })
+
 }
 
 // RANDOM CHARACTER API CALL
@@ -37,16 +37,14 @@ guessGhibliApp.randomChar = (userChoice) => {
             const computerChoice = data.filter((arrayItem) => {
                 return arrayItem.name === userChoice;
             })
-            console.log(`this is the computer choice:`, computerChoice);
-            
+                        
             const guessWho = computerChoice[0].people;
 
             let randomChar = guessWho[Math.floor(Math.random() * guessWho.length)];
             
             guessGhibliApp.getCharacterDetails(randomChar);
-            console.log(`this is the random character:`, randomChar);
+            
         })
-
 }
 
 // RANDOM CHARACTER DETAILS API CALL
@@ -57,12 +55,12 @@ guessGhibliApp.getCharacterDetails = (charURL) => {
             return response.json();
         })
         .then((data) => {
-            console.log(`this is character details:`, data);
 
         guessGhibliApp.displayCharacterDetails(data);
         guessGhibliApp.displayCharacterName(data);
         guessGhibliApp.userInput(data);
-        guessGhibliApp.formReset(data);
+        
+
         }
     )}
 
@@ -89,7 +87,6 @@ guessGhibliApp.displayCharacterDetails = (displayDetails) => {
 
     const allDetails = document.createElement('div');
     allDetails.classList.add('details');
-
 
     allDetails.appendChild(age);
     allDetails.appendChild(gender);
@@ -144,7 +141,6 @@ guessGhibliApp.userInput = (data) => {
         capitalizedResponse === generatedName ? guessGhibliApp.correctAnswer(generatedName) : guessGhibliApp.incorrectAnswer(generatedName); 
         
         userText.value = '';
-
         
     })
 }
@@ -161,6 +157,8 @@ guessGhibliApp.correctAnswer = (generatedName) => {
 
     appForm.appendChild(response);
 
+    
+
 } 
 
 // INCORRECT ANSWER FUNCTION
@@ -175,6 +173,7 @@ guessGhibliApp.incorrectAnswer = (generatedName) => {
 
     appForm.appendChild(response);
 
+    
 }
 
 // VALUE SELECT FUNCTION
@@ -185,8 +184,7 @@ guessGhibliApp.selectValue = () => {
     selectValue.addEventListener('change', (e) => {
 
         const userChoice = selectValue.value;
-        console.log(`this is the user choice:`, userChoice);
-
+ 
         guessGhibliApp.randomChar(userChoice);
 
     })
@@ -196,9 +194,9 @@ guessGhibliApp.selectValue = () => {
 guessGhibliApp.formReset = () => {
 
     const playAgain = document.getElementById('appForm');
-    // playAgain.classList.toggle('visible');
+    
     playAgain.addEventListener('click', () => {
-        playAgain.reset();
+
     })
 }
 
@@ -208,15 +206,10 @@ guessGhibliApp.init = () => {
     
     guessGhibliApp.getCharacters();
     guessGhibliApp.selectValue();
+    guessGhibliApp.formReset();
     
 }
 
 // INIT CALL
 
 guessGhibliApp.init();
-
-
-
-    
-
-    

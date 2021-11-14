@@ -399,7 +399,7 @@ main {
 
 .resultsContainer {
   border: 2px solid RGB(136, 152, 177);
-  margin: 20px;
+  margin: 20px 0;
   padding: 20px;
   width: 40%;
   height: 400px;
@@ -468,7 +468,7 @@ main {
 }
 
 .answerContainer {
-  height: 8vh;
+  height: 10vh;
   margin-top: 20px;
 }
 
@@ -527,6 +527,10 @@ footer p {
 @media (max-width: 880px) {
   .resultsSection .formContainer, .resultsSection .resultsContainer {
     width: 50%;
+  }
+
+  .resultsContainer {
+    margin-left: 20px;
   }
 }
 @media (max-width: 750px) {
