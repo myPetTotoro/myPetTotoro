@@ -598,6 +598,10 @@ footer p {
     margin-top: 50px;
   }
 
+  button.playAgain {
+    margin-bottom: 25px;
+  }
+
   footer {
     height: inherit;
   }

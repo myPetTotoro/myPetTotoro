@@ -151,6 +151,10 @@ button:focus {
     background-color: RGBA(211, 125, 106, 0.7);
 }
 
+// button.playAgain {
+//     visibility: hidden;
+// }
+
 footer {
     height: 5vh;
     background-color: RGB(23,26,35);
@@ -222,6 +226,10 @@ footer {
     margin-top: 50px;
     }
 
+    button.playAgain {
+    margin-bottom: 25px;
+    }
+
     footer {
         height: inherit;
     p {
@@ -236,6 +244,8 @@ footer {
     h3 {
         display: none;
     }
+
+
 }
 
 

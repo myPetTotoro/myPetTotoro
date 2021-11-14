@@ -195,7 +195,8 @@ guessGhibliApp.selectValue = () => {
 // PLAY AGAIN FORM RESET
 guessGhibliApp.formReset = () => {
 
-    const playAgain = document.getElementById('playAgain');
+    const playAgain = document.getElementById('appForm');
+    // playAgain.classList.toggle('visible');
     playAgain.addEventListener('click', () => {
         playAgain.reset();
     })
