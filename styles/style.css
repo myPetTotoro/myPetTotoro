@@ -576,12 +576,19 @@ footer p {
 
   .resultsContainer {
     margin: 0;
+    border: none;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .resultsContainer p, .resultsContainer h3 {
     margin: 10px;
   }
 
   .resultsSection {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     margin: 0 auto;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -590,9 +597,6 @@ footer p {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
   }
   .resultsSection .formContainer, .resultsSection .resultsContainer {
     width: 100%;
@@ -600,6 +604,36 @@ footer p {
 
   .formContainer {
     margin-top: 50px;
+  }
+
+  .flipCard {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+
+  .flipCardFront {
+    height: 0;
+  }
+
+  .flipCardBack {
+    display: none;
+  }
+
+  .resultsContainer:hover .flipCard,
+.resultsContainer:focus .flipCard {
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    text-align: center;
+  }
+
+  h3 {
+    display: none;
   }
 
   button.playAgain {
@@ -612,10 +646,5 @@ footer p {
   footer p {
     height: inherit;
     padding: 20px 0;
-  }
-}
-@media (max-width: 400px) {
-  h3 {
-    display: none;
   }
 }

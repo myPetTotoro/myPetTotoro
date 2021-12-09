@@ -207,16 +207,18 @@ footer {
 
     .resultsContainer {
     margin: 0;
+    border: none;
+    height: fit-content;
     p, h3 {
         margin: 10px;
         }
     }
 
     .resultsSection {
+    height: fit-content;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;    
         .formContainer, .resultsContainer {
         width: 100%;
         }
@@ -224,6 +226,28 @@ footer {
 
     .formContainer {
     margin-top: 50px;
+    }
+    .flipCard {
+        height: fit-content;
+    }
+    .flipCardFront {
+        height: 0;
+    }
+
+    .flipCardBack {
+        display: none;
+    }
+    .resultsContainer:hover .flipCard,
+    .resultsContainer:focus .flipCard {
+    transform: none;
+    }
+    p {
+        font-size: 1rem;
+        line-height: 1.4rem;
+        text-align: center;
+    }
+    h3 {
+        display: none;
     }
 
     button.playAgain {
@@ -241,9 +265,6 @@ footer {
 }
 
 @media (max-width: 400px) {
-    h3 {
-        display: none;
-    }
 
 
 }
